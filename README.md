@@ -1,239 +1,91 @@
-# Telephone Simulation System
+# 📞 Telephone Simulation System
 
-A Java-based GUI application that simulates telephone switching operations, including lost call and delay call scenarios. This system provides a visual representation of telephone lines, links, and active connections with real-time simulation capabilities.
+A Java GUI application that simulates telephone switching operations using **Erlang-B** (Lost Call) and **Erlang-C** (Delay Call) models. Features real-time visualization, professional statistics, and enhanced queue management.
 
-## 📋 Table of Contents
-
-- [Features](#features)
-- [System Requirements](#system-requirements)
-- [Installation](#installation)
-- [Usage](#usage)
-- [System Architecture](#system-architecture)
-- [Simulation Types](#simulation-types)
-- [User Interface](#user-interface)
-- [Technical Details](#technical-details)
-- [Troubleshooting](#troubleshooting)
-- [Author](#author)
+![Welcome Screen](output1.jpg)
 
 ## ✨ Features
 
-- **Real-time Visual Simulation**: Graphical representation of telephone lines and switching links
-- **Two Simulation Modes**:
-  - Lost Call Simulation (Erlang-B model)
-  - Delay Call Simulation (Erlang-C model)
-- **Interactive GUI**: User-friendly interface built with Java Swing
-- **Live Connection Tracking**: Real-time display of active connections with color coding
-- **Statistical Analysis**: Tracks processed calls, completed calls, blocked calls, and busy signals
-- **Multi-line Support**: Simulates up to 8 telephone lines with 3 switching links
+- 🎯 **Two Simulation Modes**: Lost Call (Erlang-B) & Delay Call (Erlang-C)
+- 📊 **Real-time Statistics**: Professional KPIs with Ctrl+Click for detailed metrics
+- 🎨 **Visual Simulation**: Color-coded connections and queue monitoring
+- ⚡ **Event-Driven Architecture**: Proper FIFO queue management
+- 📱 **Modern GUI**: Logo support and enhanced input validation
 
-## 🖥️ System Requirements
+## � Quick Start
 
-- **Java**: JDK 8 or higher
-- **Operating System**: Windows, macOS, or Linux with GUI support
-- **Memory**: Minimum 256MB RAM
-- **Display**: Minimum 800x600 resolution
+### Prerequisites
+- Java JDK 8+
+- Windows/macOS/Linux with GUI support
 
-## 🚀 Installation
-
-1. **Clone or Download** the project files to your local machine
-2. **Navigate** to the project directory:
-   ```bash
-   cd "Telephone Simulation System"
-   ```
-3. **Compile** the Java files:
-   ```bash
-   javac -cp . *.java
-   ```
-4. **Create** the package structure:
-   ```bash
-   mkdir -p com/mycompany/tsm
-   move *.class com/mycompany/tsm/
-   ```
-5. **Run** the application:
-   ```bash
-   java -cp . com.mycompany.tsm.Tsm
-   ```
-
-## 🎯 Usage
-
-### Starting the Application
-
-1. Run the main class `Tsm.java`
-2. The welcome screen will appear with two simulation options
-
-### Lost Call Simulation
-
-1. Click **"Lost Call"** button from the welcome screen
-2. Enter simulation parameters:
-   - **From Line**: Source telephone line (1-8)
-   - **To Line**: Destination telephone line (1-8)
-   - **Call Length**: Duration of the call
-   - **Arrival Time**: When the call arrives
-3. Click **"Simulate"** to process the call
-4. Observe the visual representation and statistics
-
-### Delay Call Simulation
-
-1. Click **"Delay Call"** button from the welcome screen
-2. Configure delay simulation parameters
-3. Run the simulation to see delay-based call handling
-
-## 🏗️ System Architecture
-
-### File Structure
-
-```
-Telephone Simulation System/
-├── Tsm.java                 # Main entry point
-├── welcome.java             # Welcome screen GUI
-├── MainTSM.java            # Lost call simulation
-├── Delay.java              # Delay call simulation
-├── welcome.form            # Welcome screen form layout
-├── MainTSM.form           # Main simulation form layout
-├── Delay.form             # Delay simulation form layout
-└── README.md              # This documentation
-```
-
-### Class Hierarchy
-
-- **`Tsm`**: Main class that launches the application
-- **`welcome`**: Welcome screen with simulation mode selection
-- **`MainTSM`**: Implements lost call simulation with visual display
-- **`Delay`**: Handles delay call simulation scenarios
-
-## 📊 Simulation Types
-
-### Lost Call Simulation (Erlang-B)
-
-- Models telephone systems where blocked calls are lost
-- Simulates up to 3 simultaneous connections
-- Tracks call statistics: processed, completed, blocked, busy
-- Visual representation of active connections
-
-### Delay Call Simulation (Erlang-C)
-
-- Models systems where calls wait in queue when all lines are busy
-- Handles call delays and queue management
-- Provides delay statistics and performance metrics
-
-## 🎨 User Interface
-
-### Welcome Screen
-
-- **Title**: "Telephone Simulation System"
-- **Author**: Nabin Khadka
-- **CRN**: 021-342
-- **Navigation**: Two buttons for simulation mode selection
-
-### Main Simulation Window
-
-- **Input Panel**: Parameter entry fields
-- **Visual Display**: Real-time graphical representation
-- **Statistics Panel**: Live call statistics
-- **Control Buttons**: Simulation execution controls
-
-### Visual Elements
-
-- **Lines 1-8**: Horizontal telephone lines
-- **Links 1-3**: Vertical switching links
-- **Active Connections**: Color-coded connection display
-  - 🟢 Green: Link 1 connections
-  - 🔵 Blue: Link 2 connections
-  - 🔴 Red: Link 3 connections
-
-## 🔧 Technical Details
-
-### Key Components
-
-- **Connection Management**: Tracks active calls and link utilization
-- **Call Processing**: Handles call arrival, processing, and completion
-- **Statistics Engine**: Real-time calculation of system performance
-- **Graphics Engine**: Custom paint method for visual representation
-
-### Data Structures
-
-- **`used[][]`**: 2D array tracking active connections
-- **`line[]`**: Array representing telephone line status
-- **Call Statistics**: Counters for various call states
-
-### Algorithms
-
-- **Call Routing**: Determines available links for connections
-- **State Management**: Tracks system state and transitions
-- **Collision Detection**: Handles busy lines and blocked calls
-
-## 🛠️ Troubleshooting
-
-### Common Issues
-
-**"Could not find or load main class" Error**
-
+### Installation & Run
 ```bash
-# Solution: Ensure proper package structure
+# Compile
+javac -cp . *.java
+
+# Create package structure
 mkdir -p com/mycompany/tsm
 move *.class com/mycompany/tsm/
+
+# Run
 java -cp . com.mycompany.tsm.Tsm
 ```
 
-**GUI Not Displaying**
+## 📊 Simulation Modes
 
-- Ensure Java GUI libraries are available
-- Check display settings and resolution
-- Verify Java version compatibility
+### Lost Call Simulation (Erlang-B)
+Simulates systems where blocked calls are lost. Perfect for understanding blocking probability and system capacity.
 
-**Paint Method Not Working**
+![Lost Call Simulation](lostcall.jpg)
 
-- Ensure graphics are drawn in visible area
-- Check color constants (use `Color.GREEN` not `Color.green`)
-- Verify component layering and overlap
+**Key Features:**
+- Real-time blocking probability calculation
+- Visual connection display with color coding
+- Professional statistics (Ctrl+Click for details)
 
-### Performance Tips
+### Delay Call Simulation (Erlang-C)  
+Simulates systems with call queuing. Demonstrates proper FIFO queue management and wait time analysis.
 
-- Use reasonable call lengths to avoid system overload
-- Monitor system resources during long simulations
-- Restart application if GUI becomes unresponsive
+![Delay Call Simulation](delayedcall.jpg)
 
-## 📈 Statistics Explained
+**Key Features:**
+- Unlimited queue capacity with FIFO processing
+- Event-driven architecture for realistic behavior
+- Wait time statistics and queue performance metrics
 
-- **Processed**: Total number of calls that entered the system
-- **Completed**: Successfully connected and completed calls
-- **Blocked**: Calls rejected due to no available links
-- **Busy**: Calls rejected due to busy lines
-- **Clock**: Current simulation time
-- **In Use**: Number of currently active connections
+## 🎯 How to Use
 
-## 🎓 Educational Use
+1. **Run the application**: `java -cp . com.mycompany.tsm.Tsm`
+2. **Choose simulation mode** from the welcome screen
+3. **Enter parameters**:
+   - From Line (1-8)
+   - To Line (1-8) 
+   - Call Length
+   - Arrival Time
+4. **Click "Simulate"** to run
+5. **Hold Ctrl+Click** for detailed statistics
 
-This simulation system is designed for educational purposes to demonstrate:
+## 🔧 Technical Highlights
 
-- Telephone switching concepts
-- Queueing theory (Erlang-B and Erlang-C models)
-- Real-time system simulation
-- GUI application development in Java
-- Statistical analysis of communication systems
+- **Event-Driven Architecture**: Uses `PriorityQueue<Event>` for chronological processing
+- **FIFO Queue Management**: `ArrayList<QueuedCall>` for proper call queuing
+- **Professional Statistics**: Real-time KPIs with Erlang-B/C calculations
+- **Enhanced GUI**: Logo support, input validation, and modern layout
 
-## 👨‍💻 Author
+## 🛠️ Quick Troubleshooting
 
-**Nabin Khadka**  
-CRN: 021-342
+**Class not found error?**
+```bash
+mkdir -p com/mycompany/tsm
+move *.class com/mycompany/tsm/
+```
 
-## 📝 License
+**Images not showing?** Ensure `output1.jpg`, `lostcall.jpg`, and `delayedcall.jpg` are in the project root.
 
-This project is created for educational purposes. Please refer to the license file for usage terms.
+## 👨‍� Author
 
-## 🤝 Contributing
-
-This is an educational project. If you find issues or have suggestions for improvements, please feel free to contribute by:
-
-1. Reporting bugs
-2. Suggesting enhancements
-3. Submitting pull requests
-4. Improving documentation
-
-## 📞 Support
-
-For technical support or questions about the simulation system, please refer to the course materials or contact the development team.
+**Nabin Khadka** - CRN: 021-342
 
 ---
 
-_This Telephone Simulation System provides a comprehensive platform for understanding telecommunication switching concepts through interactive visualization and real-time simulation._
+*A professional-grade telephone simulation system for educational and telecommunications analysis.*
