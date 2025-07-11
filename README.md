@@ -81,11 +81,3 @@ move *.class com/mycompany/tsm/
 ```
 
 **Images not showing?** Ensure `output1.jpg`, `lostcall.jpg`, and `delayedcall.jpg` are in the project root.
-
-## 👨‍� Author
-
-**Nabin Khadka** - CRN: 021-342
-
----
-
-*A professional-grade telephone simulation system for educational and telecommunications analysis.*
